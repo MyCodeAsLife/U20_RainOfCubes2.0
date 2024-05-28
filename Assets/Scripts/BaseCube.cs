@@ -15,6 +15,15 @@ public class BaseCube : BaseObject
         _isColorChanged = false;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == _groundLayer && _isColorChanged == false)
+        {
+            _isColorChanged = true;
+            SwitchColor();
+        }
+    }
+
     public override void StartInitialization(Vector3 position, float lifetime)
     {
         base.StartInitialization(position, lifetime);
@@ -45,14 +54,5 @@ public class BaseCube : BaseObject
         float alpha = 1;
         Color newColor = new Color(red, green, blue, alpha);
         Material.color = newColor;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.layer == _groundLayer && _isColorChanged == false)
-        {
-            _isColorChanged = true;
-            SwitchColor();
-        }
     }
 }

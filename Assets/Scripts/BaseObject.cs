@@ -11,7 +11,7 @@ public abstract class BaseObject : MonoBehaviour
 
     public event Action<BaseObject> TimeEnded;
 
-    public float Lifetime { get; private set; }         // на какой позиции? форматирование кода
+    public float Lifetime { get; private set; }
 
     private void LateUpdate()
     {
